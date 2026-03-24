@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eficiência Digital 2026 — Grupo Diagonal</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-dark:  #0a4d3a;
+    --green-mid:   #1a5f4a;
+    --green-light: #2a7a5e;
+    --green-pale:  #e8f2ef;
+    --green-soft:  #c8dfd8;
+    --white:       #ffffff;
+    --off-white:   #f7faf9;
+    --gray-100:    #f0f4f2;
+    --gray-200:    #dce6e2;
+    --gray-400:    #8fa99f;
+    --gray-600:    #4a6459;
+    --gray-800:    #1e2e29;
+    --amber:       #d97706;
+    --amber-pale:  #fef3c7;
+    --teal-accent: #0d9488;
+    --red-pale:    #fee2e2;
+    --red-mid:     #dc2626;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--off-white);
+    color: var(--gray-800);
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--green-dark);
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 16px rgba(10,77,58,0.18);
+  }
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+  .logo-area {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .logo-mark {
+    width: 36px;
+    height: 36px;
+    background: var(--white);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .logo-mark svg { width: 22px; height: 22px; }
+  .logo-text {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    color: var(--white);
+    letter-spacing: 0.01em;
+  }
+  .logo-sub {
+    font-size: 12px;
+    color: var(--green-soft);
+    font-weight: 300;
+    margin-top: 1px;
+  }
+  .header-tag {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--green-soft);
+    border: 1px solid rgba(200,223,216,0.35);
+    padding: 4px 12px;
+    border-radius: 20px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-mid) 100%);
+    padding: 4rem 2rem 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 320px; height: 320px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: 30%;
+    width: 240px; height: 240px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.03);
+  }
+  .hero-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--green-soft);
+    margin-bottom: 14px;
+  }
+  .hero-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 1rem;
+    max-width: 680px;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--green-soft);
+  }
+  .hero-desc {
+    font-size: 15px;
+    color: rgba(255,255,255,0.72);
+    line-height: 1.7;
+    max-width: 560px;
+    font-weight: 300;
+    margin-bottom: 2.5rem;
+  }
+  .hero-stats {
+    display: flex;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+  }
+  .hero-stat { }
+  .hero-stat-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.2rem;
+    color: var(--white);
+    line-height: 1;
+  }
+  .hero-stat-lbl {
+    font-size: 12px;
+    color: var(--green-soft);
+    margin-top: 3px;
+    font-weight: 300;
+  }
+
+  /* ── MAIN ── */
+  .main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem 4rem;
+  }
+
+  /* ── TABS ── */
+  .tabs-bar {
+    display: flex;
+    gap: 4px;
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 12px;
+    padding: 4px;
+    margin-bottom: 2rem;
+    width: fit-content;
+  }
+  .tab {
+    padding: 8px 20px;
+    font-size: 13px;
+    font-weight: 500;
+    border-radius: 8px;
+    border: none;
+    background: transparent;
+    color: var(--gray-600);
+    cursor: pointer;
+    transition: all 0.18s;
+    font-family: 'DM Sans', sans-serif;
+    white-space: nowrap;
+  }
+  .tab:hover { background: var(--gray-100); color: var(--green-dark); }
+  .tab.active {
+    background: var(--green-dark);
+    color: var(--white);
+  }
+
+  /* ── FILTERS ── */
+  .filter-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+    align-items: center;
+  }
+  .filter-lbl {
+    font-size: 12px;
+    color: var(--gray-400);
+    font-weight: 500;
+    margin-right: 4px;
+  }
+  .filter-btn {
+    font-size: 12px;
+    font-weight: 500;
+    padding: 5px 14px;
+    border-radius: 20px;
+    border: 1px solid var(--gray-200);
+    background: var(--white);
+    color: var(--gray-600);
+    cursor: pointer;
+    transition: all 0.15s;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .filter-btn:hover { border-color: var(--green-mid); color: var(--green-dark); }
+  .filter-btn.on { background: var(--green-dark); color: var(--white); border-color: var(--green-dark); }
+
+  /* ── CARDS ── */
+  .cards-list { display: flex; flex-direction: column; gap: 12px; }
+
+  .card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: box-shadow 0.18s;
+  }
+  .card:hover { box-shadow: 0 4px 20px rgba(10,77,58,0.08); }
+  .card.priority-high { border-left: 4px solid var(--green-mid); }
+  .card.priority-med  { border-left: 4px solid var(--amber); }
+
+  .card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 1.1rem 1.4rem;
+    cursor: pointer;
+    user-select: none;
+  }
+  .card-header:hover { background: var(--off-white); }
+
+  .card-meta { font-size: 11px; color: var(--gray-400); font-weight: 500; margin-bottom: 4px; letter-spacing: 0.04em; text-transform: uppercase; }
+  .card-title { font-size: 14px; font-weight: 500; color: var(--gray-800); line-height: 1.45; }
+
+  .card-right { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; flex-shrink: 0; }
+  .badges { display: flex; gap: 5px; flex-wrap: wrap; justify-content: flex-end; }
+
+  .badge {
+    font-size: 11px;
+    font-weight: 500;
+    padding: 3px 9px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+  .badge-area-orc  { background: #e8f2ef; color: #0a4d3a; }
+  .badge-area-plj  { background: #d1fae5; color: #065f46; }
+  .badge-area-ctr  { background: #fef3c7; color: #92400e; }
+  .badge-area-prj  { background: #dbeafe; color: #1e40af; }
+  .badge-area-sup  { background: #fee2e2; color: #991b1b; }
+  .badge-otimo     { background: #d1fae5; color: #065f46; }
+  .badge-bom       { background: #e8f2ef; color: #0a4d3a; }
+  .badge-regular   { background: #fef3c7; color: #92400e; }
+
+  .expand-btn {
+    font-size: 11px;
+    color: var(--gray-400);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    transition: color 0.15s;
+  }
+  .expand-icon { display: inline-block; transition: transform 0.25s; }
+  .expand-icon.open { transform: rotate(180deg); }
+
+  /* ── BODY COLLAPSIBLE ── */
+  .card-body {
+    display: none;
+    padding: 0 1.4rem 1.4rem;
+    border-top: 1px solid var(--gray-100);
+    animation: slideDown 0.2s ease;
+  }
+  .card-body.open { display: block; }
+  @keyframes slideDown { from { opacity:0; transform: translateY(-6px); } to { opacity:1; transform: translateY(0); } }
+
+  .section-lbl {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gray-400);
+    margin-top: 1.2rem;
+    margin-bottom: 6px;
+  }
+
+  /* MVP box */
+  .mvp-box {
+    background: var(--green-pale);
+    border: 1px solid var(--green-soft);
+    border-radius: 10px;
+    padding: 12px 16px;
+  }
+  .mvp-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+  .mvp-pill {
+    font-size: 11px;
+    font-weight: 600;
+    background: var(--green-dark);
+    color: var(--white);
+    padding: 2px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.04em;
+  }
+  .mvp-time {
+    font-size: 11px;
+    color: var(--green-light);
+    font-weight: 500;
+  }
+  .mvp-desc { font-size: 13px; color: var(--gray-800); line-height: 1.6; }
+
+  /* Entregas */
+  .entregas-list { list-style: none; }
+  .entregas-list li {
+    font-size: 13px;
+    color: var(--gray-800);
+    padding: 5px 0;
+    border-bottom: 1px solid var(--gray-100);
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    line-height: 1.45;
+  }
+  .entregas-list li:last-child { border-bottom: none; }
+  .entrega-num {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--green-dark);
+    color: var(--white);
+    font-size: 10px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* Métricas */
+  .metrics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .metric-card {
+    background: var(--gray-100);
+    border-radius: 10px;
+    padding: 10px 14px;
+  }
+  .metric-lbl { font-size: 11px; color: var(--gray-400); font-weight: 500; margin-bottom: 4px; }
+  .metric-val {
+    font-size: 13px;
+    color: var(--gray-800);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .metric-baseline { color: var(--gray-600); font-weight: 400; }
+  .metric-arrow { color: var(--green-mid); font-size: 14px; }
+  .metric-target { color: var(--green-dark); font-weight: 600; }
+
+  /* Evolução */
+  .steps { display: flex; flex-direction: column; gap: 0; }
+  .step {
+    display: flex;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--gray-100);
+    align-items: flex-start;
+  }
+  .step:last-child { border-bottom: none; }
+  .step-badge {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+    letter-spacing: 0.02em;
+  }
+  .step-v1 { background: var(--green-dark); color: var(--white); }
+  .step-v2 { background: var(--green-mid); color: var(--white); }
+  .step-v3 { background: var(--green-light); color: var(--white); }
+  .step-title { font-size: 13px; font-weight: 600; color: var(--gray-800); margin-bottom: 2px; }
+  .step-desc  { font-size: 12px; color: var(--gray-600); line-height: 1.5; }
+
+  /* ── MATRIX VIEW ── */
+  .matrix-wrapper {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 14px;
+    padding: 1.5rem;
+  }
+  .matrix-chart-wrap { position: relative; width: 100%; height: 420px; }
+  .matrix-legend {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+    font-size: 12px;
+    color: var(--gray-600);
+  }
+  .legend-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 5px;
+  }
+
+
+
+  /* ── VIEWS ── */
+  .view { display: none; }
+  .view.active { display: block; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--green-dark);
+    padding: 1.5rem 2rem;
+    text-align: center;
+    font-size: 12px;
+    color: var(--green-soft);
+    font-weight: 300;
+  }
+
+  @media (max-width: 640px) {
+    .hero { padding: 2.5rem 1.2rem 2rem; }
+    .main { padding: 1.5rem 1.2rem 3rem; }
+    .hero-stats { gap: 1.5rem; }
+    .metrics-grid { grid-template-columns: 1fr; }
+    .tabs-bar { width: 100%; overflow-x: auto; }
+    .header-tag { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <div class="logo-area">
+      <div class="logo-mark">
+        <svg viewBox="0 0 22 22" fill="none">
+          <path d="M4 18L11 4L18 18" stroke="#0a4d3a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M6.5 13h9" stroke="#0a4d3a" stroke-width="2.2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div>
+        <div class="logo-text">Grupo Diagonal</div>
+        <div class="logo-sub">Eficiência Digital</div>
+      </div>
+    </div>
+    <span class="header-tag">Eficiência Digital · 2026</span>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-label">Diagnóstico interno · Iniciativas prioritárias · 2026</div>
+    <h1 class="hero-title">Eficiência Digital<br><em>na prática</em></h1>
+    <p class="hero-desc">13 iniciativas mapeadas, simplificadas e priorizadas por impacto real e esforço de implementação — com MVPs, métricas e roadmap de evolução para cada área. Automações, LLMs e agentes de IA a serviço dos processos que mais importam.</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num">13</div>
+        <div class="hero-stat-lbl">Iniciativas mapeadas</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">8</div>
+        <div class="hero-stat-lbl">Para fazer já</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">5</div>
+        <div class="hero-stat-lbl">Áreas envolvidas</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">2–4</div>
+        <div class="hero-stat-lbl">Semanas p/ 1º MVP</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAIN -->
+<main class="main">
+
+  <!-- TABS -->
+  <div class="tabs-bar">
+    <button class="tab active" onclick="showView('list')">Iniciativas + MVP</button>
+    <button class="tab" onclick="showView('matrix')">Matriz impacto × esforço</button>
+
+  </div>
+
+  <!-- ── VIEW: LIST ── -->
+  <div class="view active" id="view-list">
+    <div class="filter-row">
+      <span class="filter-lbl">Filtrar por:</span>
+      <button class="filter-btn on" onclick="setFilter('all', this)">Todos</button>
+      <button class="filter-btn" onclick="setFilter('high', this)">Fazer já</button>
+      <button class="filter-btn" onclick="setFilter('med', this)">Planejar</button>
+      <button class="filter-btn" onclick="setFilter('Orçamento', this)">Orçamento</button>
+      <button class="filter-btn" onclick="setFilter('Controle', this)">Controle</button>
+      <button class="filter-btn" onclick="setFilter('Suprimentos', this)">Suprimentos</button>
+      <button class="filter-btn" onclick="setFilter('Projetos', this)">Projetos</button>
+      <button class="filter-btn" onclick="setFilter('Planejamento', this)">Planejamento</button>
+    </div>
+    <div class="cards-list" id="cards-list"></div>
+  </div>
+
+  <!-- ── VIEW: MATRIX ── -->
+  <div class="view" id="view-matrix">
+    <div class="matrix-wrapper">
+      <div class="matrix-chart-wrap">
+        <canvas id="matrixChart"></canvas>
+      </div>
+      <div class="matrix-legend" id="matrix-legend"></div>
+    </div>
+  </div>
+
+
+
+</main>
+
+<footer>Grupo Diagonal · 2026 · Programa de Eficiência Digital — Automações, LLMs e Agentes de IA aplicados aos processos que geram resultado · Documento interno</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const DATA = [
+  {
+    id:'01', area:'Orçamento', aval:'Regular', prioridade:'med',
+    dor:'Apresentações de aquisições e lançamentos feitas manualmente',
+    mvpDesc:'Prompt mestre + template PowerPoint com campos nomeados. O engenheiro cola os dados do Orçafascio em uma planilha intermediária; a IA preenche os textos executivos e justificativas de variação. Entrega: apresentação em 30 min.',
+    mvpTempo:'2 semanas',
+    entregas:['Prompt validado com 3 apresentações reais','Template PPT com campos mapeados','Planilha intermediária de inputs'],
+    metricas:[
+      {lbl:'Tempo por apresentação', base:'4–8 h', meta:'< 60 min'},
+      {lbl:'Apresentações por mês', base:'Volume atual', meta:'+50% sem aumento de equipe'},
+    ],
+    evolucao:[
+      {v:'V1', title:'Prompt + template manual', desc:'Planilha de inputs + IA gera textos. Zero integração.'},
+      {v:'V2', title:'Alimentação via exportação automática', desc:'Script que lê exportação do Orçafascio e preenche a planilha de inputs.'},
+      {v:'V3', title:'App web com seleção de obra', desc:'Interface onde engenheiro escolhe a obra e clica em Gerar. PPT entregue direto.'}
+    ],
+    pergsArea:['Quantas apresentações por mês e por quem?','Existe template padrão aprovado pela diretoria?','Quais dados são sempre os mesmos entre obras?','Quem faz a revisão final?'],
+    pergsSol:['Orçafascio exporta dados estruturados (CSV/Excel)?','A solução precisa gerar .pptx ou basta planilha resumo?','Qual o nível de padronização atual da narrativa?']
+  },
+  {
+    id:'02', area:'Orçamento', aval:'Bom', prioridade:'high',
+    dor:'Reavaliações de FREs geram muito retrabalho manual a cada ciclo',
+    mvpDesc:'Planilha Google Sheets ou Excel com fórmulas que redistribuem os custos por etapa automaticamente ao alterar qualquer input (custo, BDI, cronograma). IA gera o texto de justificativa a partir do delta copiado entre versões.',
+    mvpTempo:'3 semanas',
+    entregas:['Planilha com motor de cálculo validado','Prompt de justificativa de variações','Processo de versionamento simples por abas'],
+    metricas:[
+      {lbl:'Tempo por reavaliação', base:'1–2 dias', meta:'< 2 horas'},
+      {lbl:'Erros de redistribuição', base:'Frequentes', meta:'Zero (cálculo automático)'},
+    ],
+    evolucao:[
+      {v:'V1', title:'Planilha inteligente + IA para texto', desc:'Inputs manuais, redistribuição automática, justificativa via prompt.'},
+      {v:'V2', title:'Controle de versões estruturado', desc:'Cada reavaliação vira uma aba com histórico e comparativo automático.'},
+      {v:'V3', title:'Integração ERP + base central', desc:'Motor migra para Supabase; dados puxados automaticamente do RM a cada ciclo.'}
+    ],
+    pergsArea:['Quantas reavaliações por obra em média?','Quais inputs mudam com mais frequência?','As regras da Caixa estão documentadas?','Quem valida o resultado final?'],
+    pergsSol:['As regras de distribuição variam por tipologia?','A solução pode ser standalone ou precisa do ERP?','Qual o formato exigido pela Caixa?']
+  },
+  {
+    id:'03', area:'Orçamento', aval:'Bom', prioridade:'high',
+    dor:'Processos espalhados em planilhas e e-mails, sem visibilidade centralizada',
+    mvpDesc:'Notion ou ClickUp configurado com templates de processo por tipo (Aquisição, PJ, Custo, Produto). Cada processo vira um card com checklist, responsáveis e datas. IA resume pendências e histórico sob demanda.',
+    mvpTempo:'2 semanas',
+    entregas:['Workspace Notion/ClickUp configurado','Templates para cada tipo de processo','Treinamento de 1h para as áreas envolvidas'],
+    metricas:[
+      {lbl:'Follow-ups por e-mail', base:'Muitos por semana', meta:'Redução > 70%'},
+      {lbl:'Processos com prazo perdido', base:'Ocorre sem aviso', meta:'Zero sem alerta prévio'},
+    ],
+    evolucao:[
+      {v:'V1', title:'Notion/ClickUp com templates', desc:'Processos manuais, mas centralizados e visíveis para todas as áreas.'},
+      {v:'V2', title:'Automações internas', desc:'Alertas automáticos de prazo; avanço de etapa via checklist completo.'},
+      {v:'V3', title:'Integração TOTVS / CDE / Teams', desc:'Criação automática de processos a partir de eventos no ERP.'}
+    ],
+    pergsArea:['Quantos processos simultâneos hoje?','Principal problema: visibilidade, responsabilidade ou prazo?','Já existe alguma ferramenta em uso?','Quais áreas precisam ver o status?'],
+    pergsSol:['Integração com TOTVS é pré-requisito ou plus?','O time teria adesão a nova ferramenta?','Qual processo é o mais crítico para o piloto?']
+  },
+  {
+    id:'04', area:'Orçamento', aval:'Regular', prioridade:'high',
+    dor:'Estimativa de custo de aquisição leva 3 dias e é feita manualmente',
+    mvpDesc:'Planilha de estimativa rápida alimentada pelo histórico de obras similares já existente. Com região, tipologia e padrão como inputs, PROCV/Power Query seleciona referências e calcula custo por m². IA gera o texto explicativo e seleciona as obras mais próximas.',
+    mvpTempo:'3 semanas',
+    entregas:['Base histórica de obras organizada e limpa','Planilha de estimativa com seleção automática de referências','Prompt que gera o mini-relatório para comitê'],
+    metricas:[
+      {lbl:'Tempo de estimativa', base:'3 dias', meta:'< 4 horas'},
+      {lbl:'Variação vs orçamento final', base:'Desconhecida', meta:'Medir e reduzir em 6 meses'},
+    ],
+    evolucao:[
+      {v:'V1', title:'Planilha + histórico organizado', desc:'Inputs manuais; seleção de referência e texto via IA.'},
+      {v:'V2', title:'Ajuste automático por região/índice', desc:'Correção de valores históricos por índice regional (INCC, CUB).'},
+      {v:'V3', title:'Integração RM + Orçafascio', desc:'Dados puxados automaticamente; estimativa gerada em < 30 min.'}
+    ],
+    pergsArea:['Quantas estimativas de aquisição por mês?','Os dados históricos estão organizados?','Qual variável mais impacta o custo?','O gargalo é coletar dados ou calcular?'],
+    pergsSol:['Existe base histórica de custo por m² consolidada?','O formato de saída já está definido?','Qual a tolerância aceitável de variação?']
+  },
+  {
+    id:'05', area:'Planejamento', aval:'Bom', prioridade:'high',
+    dor:'Conferência manual de reprogramações no MS Project é trabalhosa e sujeita a erros',
+    mvpDesc:'Script Python que lê o arquivo .mpp exportado em XML, compara com a linha de base salva e gera relatório de desvios em Excel (durações, frentes, sequência). IA interpreta os desvios e escreve o texto de conformidade ou recomendação.',
+    mvpTempo:'3 semanas',
+    entregas:['Script de comparação .mpp × linha de base','Relatório Excel com checklist de conformidade','Prompt que gera o texto de análise'],
+    metricas:[
+      {lbl:'Tempo de conferência por reprogramação', base:'4–8 horas', meta:'< 30 min'},
+      {lbl:'Desvios não identificados', base:'Ocorre', meta:'Zero não detectado'},
+    ],
+    evolucao:[
+      {v:'V1', title:'Script local + relatório Excel', desc:'Engenheiro exporta o .mpp, roda o script, recebe o relatório.'},
+      {v:'V2', title:'Upload via interface simples', desc:'Interface web para upload do .mpp; relatório gerado direto no navegador.'},
+      {v:'V3', title:'Validação com premissas da empresa', desc:'Base de produtividades históricas comparada automaticamente a cada upload.'}
+    ],
+    pergsArea:['Com que frequência ocorrem reprogramações?','Quais premissas são mais violadas?','A linha de base está sempre salva no Project?','Quanto tempo leva a conferência hoje?'],
+    pergsSol:['Os arquivos .mpp têm estrutura padronizada entre obras?','As premissas de produtividade estão documentadas?','A solução pode ser um script local?']
+  },
+  {
+    id:'06', area:'Controle', aval:'Ótimo', prioridade:'high',
+    dor:'Conferência manual linha a linha entre medições do RM e boletins de obra',
+    mvpDesc:'Power Query ou script Python que faz o DE-PARA entre a exportação do RM (Excel) e o BMO (Excel), marcando automaticamente as divergências por obra, contrato e período. IA gera o resumo executivo e lista causas prováveis por tipo de divergência.',
+    mvpTempo:'2 semanas',
+    entregas:['Query/script de cruzamento RM × BMO','Relatório com índice de conformidade por contrato','Prompt de resumo executivo com causas e ações'],
+    metricas:[
+      {lbl:'Tempo de conferência mensal', base:'Dias', meta:'< 2 horas'},
+      {lbl:'Pagamentos liberados com divergência', base:'Risco atual', meta:'Zero sem revisão'},
+    ],
+    evolucao:[
+      {v:'V1', title:'Power Query + resumo via IA', desc:'Exportações manuais dos dois sistemas; cruzamento automático; texto por IA.'},
+      {v:'V2', title:'Histórico de conformidade por fornecedor', desc:'Acumulação do histórico de conformidade por contrato ao longo dos ciclos.'},
+      {v:'V3', title:'Integração direta com RM', desc:'Dados puxados via API; relatório gerado sem exportação manual.'}
+    ],
+    pergsArea:['Quantas medições por mês e qual o volume de linhas?','O RM exporta dados em formato estruturado?','Os BMOs têm formato padronizado?','Qual tipo de divergência é mais comum?'],
+    pergsSol:['Os dados do RM têm chaves únicas para cruzamento com BMO?','O relatório precisa ser auditável?','A solução precisa de aprovação antes de liberar pagamento?']
+  },
+  {
+    id:'07', area:'Controle', aval:'Ótimo', prioridade:'high',
+    dor:'Tradução manual entre EAP do MS Project e EAP do Relatório Analítico a cada ciclo',
+    mvpDesc:'Planilha de mapeamento DE-PARA construída uma única vez, com PROCV/Power Query que aplica o mapeamento automaticamente a cada exportação do Project. IA sugere vínculos prováveis para tarefas novas sem correspondência no RA.',
+    mvpTempo:'2 semanas',
+    entregas:['Planilha DE-PARA validada com engenharia','Query de aplicação automática do mapeamento','Prompt para sugestão de novos vínculos'],
+    metricas:[
+      {lbl:'Tempo de tradução mensal', base:'Horas por obra', meta:'< 15 min por obra'},
+      {lbl:'Tarefas sem correspondência no RA', base:'Descoberto no ciclo', meta:'Alerta antes do fechamento'},
+    ],
+    evolucao:[
+      {v:'V1', title:'Planilha DE-PARA + PROCV', desc:'Mapeamento manual feito uma vez; aplicação automática a partir daí.'},
+      {v:'V2', title:'IA sugere vínculos novos', desc:'A cada ciclo, IA identifica tarefas sem par e sugere o mapeamento para aprovação.'},
+      {v:'V3', title:'Módulo integrado Planejamento × Controle', desc:'Plataforma que mantém as duas EAPs sincronizadas em tempo real.'}
+    ],
+    pergsArea:['O mapeamento DE-PARA existe hoje de alguma forma?','Com que frequência surgem tarefas sem correspondência?','Quem mantém o DE-PARA hoje?','O avanço físico é ponderado por custo ou prazo?'],
+    pergsSol:['As EAPs têm nomenclatura com algum padrão comum?','Quantas obras precisam ter o DE-PARA mantido?','Existe versionamento quando as EAPs mudam?']
+  },
+  {
+    id:'08', area:'Projetos', aval:'Bom', prioridade:'med',
+    dor:'Controle de indicadores de contratação de projetistas sem dados consolidados',
+    mvpDesc:'Dashboard no Google Sheets ou Power BI alimentado por exportação periódica do TOTVS e CDE. IDC, IDP e IDQ calculados por fórmula. IA resume desempenho por projetista e responde perguntas sobre o portfólio.',
+    mvpTempo:'4 semanas',
+    entregas:['Dashboard com IDC, IDP e IDQ por projetista','Processo de exportação e atualização mensal','Prompt de resumo de desempenho por obra'],
+    metricas:[
+      {lbl:'Tempo para gerar relatório de projetistas', base:'Manual / inexistente', meta:'< 30 min por ciclo'},
+      {lbl:'Contratações com base em histórico', base:'Intuitivo', meta:'100% com indicadores'},
+    ],
+    evolucao:[
+      {v:'V1', title:'Dashboard manual + IA para resumos', desc:'Exportação periódica; dashboard atualizado manualmente; IA gera textos.'},
+      {v:'V2', title:'Atualização automática via script', desc:'Script agendado que puxa exportações e atualiza o dashboard sem intervenção.'},
+      {v:'V3', title:'Painel interativo com ranking e alertas', desc:'Interface web com ranking de projetistas, alertas de desvio e histórico.'}
+    ],
+    pergsArea:['Os dados de prazo e custo por contrato existem no TOTVS?','IDC, IDP e IDQ são calculados hoje de alguma forma?','Quem usa esses indicadores para tomar decisão?','Existe critério definido de qualidade?'],
+    pergsSol:['O CDE permite extração de indicadores de qualidade?','A frequência precisa ser diária, semanal ou mensal?','O painel é interno ou compartilhado com projetistas?']
+  },
+  {
+    id:'09', area:'Projetos', aval:'Bom', prioridade:'high',
+    dor:'Pré-análise fiscal de NFs de projetos feita manualmente, com risco tributário',
+    mvpDesc:'IA recebe o XML da NF (via upload ou e-mail) e aplica checklist parametrizado por município: CNPJ, código de serviço, tributos, retenções. Classifica em OK / Alerta / Rejeitar com justificativa. Renomeação feita por macro após validação.',
+    mvpTempo:'3 semanas',
+    entregas:['Prompt de análise fiscal parametrizado por município','Checklist de regras por município documentado','Macro de renomeação e organização de arquivos'],
+    metricas:[
+      {lbl:'Tempo de pré-análise por NF', base:'15–30 min', meta:'< 3 min'},
+      {lbl:'NFs com erro não detectado', base:'Ocorre', meta:'Zero passando sem alerta'},
+    ],
+    evolucao:[
+      {v:'V1', title:'Prompt de análise + macro', desc:'Upload manual do XML; IA classifica; macro organiza os arquivos.'},
+      {v:'V2', title:'Processamento em lote por e-mail', desc:'NFs enviadas por e-mail são processadas automaticamente em lote.'},
+      {v:'V3', title:'Integração com ERP e trilha de auditoria', desc:'Resultado registrado no ERP; histórico completo por fornecedor.'}
+    ],
+    pergsArea:['Quantas NFs de projetos por mês?','Quais erros são mais frequentes?','As NFs chegam em XML ou só PDF?','Quem faz a pré-análise hoje?'],
+    pergsSol:['As regras tributárias por município estão documentadas?','O padrão de renomeação já está definido?','A solução precisa integrar com o ERP no MVP?']
+  },
+  {
+    id:'10', area:'Projetos', aval:'Regular', prioridade:'med',
+    dor:'Planilha da controladoria de projetos com recálculo manual e dados dispersos',
+    mvpDesc:'Consolidação da planilha atual com Power Query alimentado por exportações do TOTVS. KPIs (IDC, IDP, IDQ) calculados automaticamente. Dashboard em Power BI para visão gerencial. IA gera o resumo executivo mensal.',
+    mvpTempo:'4 semanas',
+    entregas:['Planilha consolidada com Power Query','Dashboard Power BI com os KPIs principais','Prompt de resumo executivo mensal'],
+    metricas:[
+      {lbl:'Tempo de fechamento mensal', base:'Dias', meta:'< 2 horas'},
+      {lbl:'Erros de consolidação por mês', base:'Ocorre', meta:'Zero (fonte única)'},
+    ],
+    evolucao:[
+      {v:'V1', title:'Power Query + Power BI', desc:'Exportação manual do TOTVS; consolidação e dashboard automáticos.'},
+      {v:'V2', title:'Atualização agendada via script', desc:'Script puxa os dados periodicamente; dashboard sempre atualizado.'},
+      {v:'V3', title:'Base estruturada + agente conversacional', desc:'Dados migram para Supabase; IA responde perguntas sobre contratos e aditivos.'}
+    ],
+    pergsArea:['Quantas pessoas alimentam a planilha e com que frequência?','A principal dor é tempo, erros ou falta de visibilidade?','Os dados do TOTVS são exportáveis de forma estruturada?','Quem são os usuários finais?'],
+    pergsSol:['A planilha tem lógica de cálculo documentada?','Power BI já está disponível na empresa?','Qual o prazo aceitável para migrar?']
+  },
+  {
+    id:'11', area:'Suprimentos', aval:'Ótimo', prioridade:'high',
+    dor:'Sem acesso rápido ao histórico de última contratação por fornecedor e produto',
+    mvpDesc:'Tabela Google Sheets ou Notion alimentada por exportação periódica do ERP, com filtros por item, fornecedor, região e condições. IA responde perguntas sobre o histórico diretamente a partir da tabela exportada.',
+    mvpTempo:'2 semanas',
+    entregas:['Tabela de histórico limpa e estruturada','Processo de exportação e atualização definido','Prompt de consulta ao histórico via IA'],
+    metricas:[
+      {lbl:'Tempo para consultar última contratação', base:'Horas (busca manual)', meta:'< 2 min'},
+      {lbl:'Negociações com base em histórico real', base:'Eventual', meta:'100% das cotações'},
+    ],
+    evolucao:[
+      {v:'V1', title:'Tabela exportada + IA para consultas', desc:'Exportação manual periódica; IA responde perguntas sobre a tabela.'},
+      {v:'V2', title:'Atualização automática via script', desc:'Script agendado que sincroniza a tabela com o ERP sem intervenção.'},
+      {v:'V3', title:'Base central com API para outras áreas', desc:'Orçamento e Planejamento consultam o histórico diretamente em seus fluxos.'}
+    ],
+    pergsArea:['O ERP exporta histórico de contratos de forma estruturada?','Quais campos são mais consultados?','Quantas pessoas precisam acessar?','A nomenclatura de itens é padronizada?'],
+    pergsSol:['O ERP tem API ou apenas exportação manual?','É necessário controle de acesso?','O histórico precisa cobrir quanto tempo atrás?']
+  },
+  {
+    id:'12', area:'Suprimentos', aval:'Bom', prioridade:'med',
+    dor:'Processo de contratação de serviços sem rastreabilidade, com planilhas paralelas',
+    mvpDesc:'Notion ou ClickUp configurado como workflow de contratação: requisição → cotação → comparativo → aprovação → contrato. IA extrai dados de propostas recebidas por e-mail e monta o comparativo. Assinatura via DocuSign ou similar.',
+    mvpTempo:'4 semanas',
+    entregas:['Workspace de workflow de contratação configurado','Template de comparativo automático via IA','Processo de assinatura eletrônica definido'],
+    metricas:[
+      {lbl:'Processos com rastreabilidade', base:'Parcial/nenhum', meta:'100% rastreáveis'},
+      {lbl:'Tempo médio do ciclo de contratação', base:'Atual (medir)', meta:'Redução de 30% em 6 meses'},
+    ],
+    evolucao:[
+      {v:'V1', title:'Workflow no-code + comparativo via IA', desc:'Processo centralizado; IA monta comparativo a partir das propostas.'},
+      {v:'V2', title:'Aprovações automáticas por alçada', desc:'Sistema roteia aprovações conforme valor e tipo de serviço.'},
+      {v:'V3', title:'Integração ERP + contrato automático', desc:'Aprovação dispara geração de contrato e lançamento no ERP.'}
+    ],
+    pergsArea:['Quantas contratações de serviço por mês?','Quais etapas geram mais gargalo?','Já existe algum fluxo formalizado?','Quais áreas participam além de Suprimentos?'],
+    pergsSol:['As alçadas de aprovação estão documentadas?','Revisão jurídica é obrigatória antes de assinar?','Integração com ERP é pré-requisito para o MVP?']
+  },
+  {
+    id:'13', area:'Suprimentos', aval:'Bom', prioridade:'med',
+    dor:'Disparo de cotações de insumos feito manualmente, sem estrutura de comparativo',
+    mvpDesc:'Template padronizado de e-mail de cotação por tipo de insumo + script que dispara para a lista de fornecedores homologados. IA estrutura as respostas recebidas em tabela comparativa e gera recomendação de compra para revisão do comprador.',
+    mvpTempo:'3 semanas',
+    entregas:['Templates de cotação por tipo de insumo','Lista de fornecedores homologados organizada','Prompt que estrutura respostas em comparativo'],
+    metricas:[
+      {lbl:'Tempo de montagem do comparativo', base:'Horas', meta:'< 15 min'},
+      {lbl:'Cotações com histórico de decisão', base:'Baixo', meta:'100% documentadas'},
+    ],
+    evolucao:[
+      {v:'V1', title:'Templates + comparativo via IA', desc:'Disparo manual via e-mail; IA estrutura respostas; comparativo em minutos.'},
+      {v:'V2', title:'Disparo automático por gatilho', desc:'Necessidade no planejamento dispara cotação automaticamente.'},
+      {v:'V3', title:'Agente autônomo de cotação', desc:'Agente seleciona fornecedores, dispara, coleta, compara e recomenda com trilha de auditoria.'}
+    ],
+    pergsArea:['Quantas cotações por mês?','Os fornecedores respondem por e-mail, portal ou WhatsApp?','Existe lista de fornecedores homologados por insumo?','Qual o tempo médio do disparo ao fechamento?'],
+    pergsSol:['As respostas chegam em formato minimamente estruturado?','A homologação tem critérios formalizados?','A solução precisa de trilha de auditoria para financiadores?']
+  }
+];
+
+const IMPACTO = {'01':5,'02':8,'03':7,'04':9,'05':7,'06':9,'07':8,'08':6,'09':7,'10':6,'11':8,'12':7,'13':7};
+const ESFORCO = {'01':8,'02':5,'03':4,'04':5,'05':5,'06':4,'07':3,'08':5,'09':4,'10':4,'11':3,'12':6,'13':5};
+
+const AREA_COLORS = {
+  'Orçamento':'#0a4d3a','Planejamento':'#1a5f4a','Controle':'#d97706',
+  'Projetos':'#1e40af','Suprimentos':'#991b1b'
+};
+const AREA_BADGE = {
+  'Orçamento':'badge-area-orc','Planejamento':'badge-area-plj','Controle':'badge-area-ctr',
+  'Projetos':'badge-area-prj','Suprimentos':'badge-area-sup'
+};
+const AVAL_BADGE = {'Ótimo':'badge-otimo','Bom':'badge-bom','Regular':'badge-regular'};
+
+let activeFilter = 'all';
+let openCards = new Set();
+
+// ── BUILD CARDS ──
+function buildCards() {
+  const container = document.getElementById('cards-list');
+  container.innerHTML = '';
+  const filtered = DATA.filter(d => {
+    if (activeFilter === 'all') return true;
+    if (activeFilter === 'high' || activeFilter === 'med') return d.prioridade === activeFilter;
+    return d.area === activeFilter;
+  });
+  filtered.forEach(d => {
+    const prioClass = d.prioridade === 'high' ? 'priority-high' : 'priority-med';
+    const prioLabel = d.prioridade === 'high' ? 'Fazer já' : 'Planejar';
+    const isOpen = openCards.has(d.id);
+    const card = document.createElement('div');
+    card.className = `card ${prioClass}`;
+    card.id = `card-${d.id}`;
+    card.innerHTML = `
+      <div class="card-header" onclick="toggleCard('${d.id}')">
+        <div style="flex:1">
+          <div class="card-meta">#${d.id} · ${prioLabel} · ${d.area}</div>
+          <div class="card-title">${d.dor}</div>
+        </div>
+        <div class="card-right">
+          <div class="badges">
+            <span class="badge ${AREA_BADGE[d.area]}">${d.area}</span>
+            <span class="badge ${AVAL_BADGE[d.aval]}">${d.aval}</span>
+          </div>
+          <div class="expand-btn">
+            <span id="icon-${d.id}" class="expand-icon${isOpen?' open':''}">▼</span>
+            <span id="lbl-${d.id}">${isOpen?'recolher':'expandir'}</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-body${isOpen?' open':''}" id="body-${d.id}">
+        <div class="section-lbl">MVP — o que fazer primeiro</div>
+        <div class="mvp-box">
+          <div class="mvp-header">
+            <span class="mvp-pill">MVP</span>
+            <span class="mvp-time">${d.mvpTempo}</span>
+          </div>
+          <div class="mvp-desc">${d.mvpDesc}</div>
+        </div>
+
+        <div class="section-lbl">Entregas do MVP</div>
+        <ul class="entregas-list">
+          ${d.entregas.map((e,i)=>`<li><span class="entrega-num">${i+1}</span><span>${e}</span></li>`).join('')}
+        </ul>
+
+        <div class="section-lbl">Como medir o sucesso</div>
+        <div class="metrics-grid">
+          ${d.metricas.map(m=>`
+            <div class="metric-card">
+              <div class="metric-lbl">${m.lbl}</div>
+              <div class="metric-val">
+                <span class="metric-baseline">${m.base}</span>
+                <span class="metric-arrow">→</span>
+                <span class="metric-target">${m.meta}</span>
+              </div>
+            </div>`).join('')}
+        </div>
+
+        <div class="section-lbl">Como evoluir gradativamente</div>
+        <div class="steps">
+          ${d.evolucao.map(e=>`
+            <div class="step">
+              <div class="step-badge step-${e.v}">${e.v}</div>
+              <div>
+                <div class="step-title">${e.title}</div>
+                <div class="step-desc">${e.desc}</div>
+              </div>
+            </div>`).join('')}
+        </div>
+      </div>
+    `;
+    container.appendChild(card);
+  });
+}
+
+function toggleCard(id) {
+  const body = document.getElementById(`body-${id}`);
+  const icon = document.getElementById(`icon-${id}`);
+  const lbl  = document.getElementById(`lbl-${id}`);
+  const isOpen = body.classList.contains('open');
+  body.classList.toggle('open');
+  icon.classList.toggle('open');
+  lbl.textContent = isOpen ? 'expandir' : 'recolher';
+  if (isOpen) openCards.delete(id); else openCards.add(id);
+}
+
+function setFilter(f, btn) {
+  activeFilter = f;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+  buildCards();
+}
+
+// ── BUILD MATRIX ──
+function buildMatrix() {
+  const ctx = document.getElementById('matrixChart').getContext('2d');
+  new Chart(ctx, {
+    type: 'scatter',
+    data: {
+      datasets: [{
+        data: DATA.map(d => ({ x: ESFORCO[d.id], y: IMPACTO[d.id], label: d.id, area: d.area })),
+        backgroundColor: DATA.map(d => AREA_COLORS[d.area] + 'BB'),
+        borderColor: DATA.map(d => AREA_COLORS[d.area]),
+        pointRadius: 20, pointHoverRadius: 22, borderWidth: 1.5
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: ctx2 => {
+              const d = DATA[ctx2.dataIndex];
+              return [`#${d.id} · ${d.area}`, d.dor.substring(0,55)+'...'];
+            }
+          }
+        }
+      },
+      scales: {
+        x: { title:{ display:true, text:'Esforço (1 = mínimo  →  10 = alto)' }, min:0, max:11, ticks:{ stepSize:1 } },
+        y: { title:{ display:true, text:'Impacto (1 = baixo  →  10 = alto)' }, min:0, max:11, ticks:{ stepSize:1 } }
+      }
+    },
+    plugins: [{
+      id: 'numbersAndQuadrants',
+      afterDraw(chart) {
+        const c = chart.ctx;
+        // Quadrant lines
+        c.save();
+        c.strokeStyle = '#dce6e2';
+        c.lineWidth = 1;
+        c.setLineDash([5,5]);
+        const mx = chart.scales.x.getPixelForValue(5.5);
+        const my = chart.scales.y.getPixelForValue(5.5);
+        c.beginPath(); c.moveTo(mx, chart.scales.y.top); c.lineTo(mx, chart.scales.y.bottom); c.stroke();
+        c.beginPath(); c.moveTo(chart.scales.x.left, my); c.lineTo(chart.scales.x.right, my); c.stroke();
+        c.setLineDash([]);
+        // Quadrant labels
+        c.fillStyle = '#aaa';
+        c.font = '400 11px DM Sans, sans-serif';
+        c.textAlign = 'center';
+        c.fillText('Fazer já', chart.scales.x.getPixelForValue(2.5), chart.scales.y.getPixelForValue(9));
+        c.fillText('Planejar', chart.scales.x.getPixelForValue(8.5), chart.scales.y.getPixelForValue(9));
+        c.fillText('Revisar dor', chart.scales.x.getPixelForValue(2.5), chart.scales.y.getPixelForValue(2));
+        c.fillText('Deprioritizar', chart.scales.x.getPixelForValue(8.5), chart.scales.y.getPixelForValue(2));
+        // Labels on dots
+        chart.data.datasets[0].data.forEach((pt, i) => {
+          const meta = chart.getDatasetMeta(0).data[i];
+          c.fillStyle = '#ffffff';
+          c.font = '600 11px DM Sans, sans-serif';
+          c.textAlign = 'center';
+          c.textBaseline = 'middle';
+          c.fillText(pt.label, meta.x, meta.y);
+        });
+        c.restore();
+      }
+    }]
+  });
+
+  // Legend
+  const leg = document.getElementById('matrix-legend');
+  Object.entries(AREA_COLORS).forEach(([area, color]) => {
+    const s = document.createElement('span');
+    s.style.cssText = 'display:flex;align-items:center;gap:5px;';
+    s.innerHTML = `<span class="legend-dot" style="background:${color}"></span>${area}`;
+    leg.appendChild(s);
+  });
+}
+
+// ── VIEW SWITCHER ──
+function showView(v) {
+  document.querySelectorAll('.view').forEach(el => el.classList.remove('active'));
+  document.getElementById('view-'+v).classList.add('active');
+  document.querySelectorAll('.tab').forEach((t,i) => {
+    t.classList.toggle('active', ['list','matrix'][i] === v);
+  });
+}
+
+// INIT
+buildCards();
+buildMatrix();
+</script>
+</body>
+</html>
